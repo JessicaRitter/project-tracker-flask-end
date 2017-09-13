@@ -8,5 +8,15 @@
     <p>{{ projects[1] }}</p>
     <p>Max grade:{{ projects[2] }}</p>
     {{ project }}
+
+    <ul>
+        {% for student, grade in gradeslist %}
+
+            <li>
+                <a href="/student/{{ student }}"> Student: {{ student }}</a>, Grade: {{ grade }}
+            </li>
+
+        {% endfor %}
+    </ul>
 </body>
 </html>

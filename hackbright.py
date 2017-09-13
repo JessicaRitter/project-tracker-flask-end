@@ -156,6 +156,29 @@ def get_grades_by_title(title):
 
     return rows
 
+def get_all_students():
+    """Get all students"""
+    QUERY = """
+        SELECT  first_name, last_name, github
+        FROM students
+    """
+    db_cursor = db.session.execute(QUERY)
+
+    rows = db_cursor.fetchall()
+    print rows
+    return rows
+
+def get_all_projects():
+    """Get all projects"""
+    QUERY = """
+        SELECT title
+        FROM projects
+        """
+    db_cursor = db.session.execute(QUERY)
+
+    rows = db_cursor.fetchall()
+
+    return rows
 
 def handle_input():
     """Main loop.
@@ -203,7 +226,7 @@ def handle_input():
 if __name__ == "__main__":
     connect_to_db(app)
 
-    handle_input()
+    # handle_input()
 
     # To be tidy, we'll close our database connection -- though, since this
     # is where our program ends, we'd quit anyway.

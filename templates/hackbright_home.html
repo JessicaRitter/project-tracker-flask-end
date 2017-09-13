@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <title>Hackbright Homepage</title>
+</head>
+<body>
+    <h1>Hackbright Homepage</h1>
+
+<p> Students </p>
+<ul>
+        {% for first, last, github in students %}
+
+            <li>
+                <a href="/student/{{ github }}"> Github: {{ github }}</a>,
+                Name: {{ first }} {{ last }}
+            </li>
+
+        {% endfor %}
+</ul>
+
+<p>Student Projects:</p>
+<ul>
+
+{% for project in projects %}
+
+<li><a href="/project/{{ project[0] }}">Project: {{ project[0] }}</a></li>
+
+{% endfor %}
+</ul>
+</body>
+</html>
